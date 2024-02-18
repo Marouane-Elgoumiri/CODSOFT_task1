@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>Mare Portfolio</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var footer = document.querySelector("footer");
+        const middleSection = document.getElementById('middle');
+        const whatSection = document.getElementById('whatIDo');
+        const SkillsSection = document.getElementById('skills');
+        const CertificateSection = document.getElementById('certificate');
+        const ProjectsSection = document.getElementById('projects');
+        const ContactSection = document.getElementById('contact');
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); 
+                }
+            });
+        };
+        const observerOptions = {
+            threshold: 0.5 
+        };
+
+        const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = document.querySelectorAll('#about, #whatIDo, #skills, #certificate, #projects, #contact');
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            sectionObserver.observe(section);
+        });
+        function downloadCertificate(certificateNumber) {
+        const certificateUrls = [
+            "Assets/AI.pdf","Assets/AI_2","Assets/C#.pdf"
+        ];
+
+        const certificateUrl = certificateUrls[certificateNumber - 1];
+
+        const link = document.createElement("a");
+        link.href = certificateUrl;
+        link.download = `Certificate_${certificateNumber}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+    }
+        function toggleFooterVisibility() {
+            var documentHeight = document.documentElement.scrollHeight;
+
+            var scrollPosition = window.scrollY + window.innerHeight;
+
+            var threshold = 0.95;
+
+            if (scrollPosition >= threshold * documentHeight) {
+                footer.style.opacity = 1; 
+            } else {
+                footer.style.opacity = 0; 
+            }
+        }
+        document.getElementById("download-button-1").addEventListener("click", function() {
+        downloadCertificate(1);
+        });
+
+        document.getElementById("download-button-2").addEventListener("click", function() {
+            downloadCertificate(2);
+        });
+
+        document.getElementById("download-button-3").addEventListener("click", function() {
+            downloadCertificate(3);
+        });
+        window.addEventListener("scroll", toggleFooterVisibility);
+
+        toggleFooterVisibility();
+        
+    });
+</script>
+
+</head>
+<body class="img"> 
+        <header>
+            <div class="logo">
+                <img src="Assets/mr1.png" alt="logo">
+            </div>
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#certificate">Certifications</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="about">
+            <div class="about-content">
+                <h1>Hi! I'm Marouane</h1>
+                <p>
+                    I am a passionate and dedicated web developer with a keen eye for detail and a drive for 
+                    creating innovative and user-friendly solutions. My journey into the world of
+                    web development began with a curiosity for technology and a strong desire to 
+                    make a meaningful impact through coding.
+                </p>
+                <div class="social-icons">
+                    <a href="marouane.elgoumiri@e-polytechnique.ma"><img src="Assets/outlook.png" alt="gmail"></a>
+                    <a href="https://www.linkedin.com/in/marwan-elgoumiri-2a0469207/"><img src="Assets/inkedin.png" alt="LinkedIn"></a>
+                </div>
+                <div class="buttons">
+                    <a class="contact-button" href="#contact">Contact Me</a>
+                    <a class="resume-button" href="MAROUANE's_Resume.pdf">See my Resume</a>
+                </div>
+            </div>
+            <div class="about-image">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                <dotlottie-player src="https://lottie.host/cef3f838-fc4c-4d04-988c-5419a1c7f306/x5dnwX3HQg.json" 
+                    background="transparent" 
+                    speed="1"
+                    style="width: 600px; height: 600px;" 
+                    loop autoplay>
+                </dotlottie-player>
+            </div>
+        </section>
+
+        <section id="whatIDo">
+            <div class="what-i-do-content">
+                <div class="what-i-do-image">
+                    <div class="e-card playing">
+                        <div class="image"></div>
+                        
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="infotop">
+                      
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+                        <path fill="currentColor" d="M19.4133 4.89862L14.5863 2.17544C12.9911 1.27485 11.0089 1.27485 9.41368 2.17544L4.58674
+                        4.89862C2.99153 5.7992 2 7.47596 2 9.2763V14.7235C2 16.5238 2.99153 18.2014 4.58674 19.1012L9.41368
+                        21.8252C10.2079 22.2734 11.105 22.5 12.0046 22.5C12.6952 22.5 13.3874 22.3657 14.0349 22.0954C14.2204
+                        22.018 14.4059 21.9273 14.5872 21.8252L19.4141 19.1012C19.9765 18.7831 20.4655 18.3728 20.8651
+                        17.8825C21.597 16.9894 22 15.8671 22 14.7243V9.27713C22 7.47678 21.0085 5.7992 19.4133 4.89862ZM4.10784
+                        14.7235V9.2763C4.10784 8.20928 4.6955 7.21559 5.64066 6.68166L10.4676 3.95848C10.9398 3.69152 11.4701
+                        3.55804 11.9996 3.55804C12.5291 3.55804 13.0594 3.69152 13.5324 3.95848L18.3593 6.68166C19.3045 7.21476
+                        19.8922 8.20928 19.8922 9.2763V9.75997C19.1426 9.60836 18.377 9.53091 17.6022 9.53091C14.7929 9.53091
+                        12.1041 10.5501 10.0309 12.3999C8.36735 13.8847 7.21142 15.8012 6.68783 17.9081L5.63981 17.3165C4.69466
+                        16.7834 4.10699 15.7897 4.10699 14.7235H4.10784ZM10.4676 20.0413L8.60933 18.9924C8.94996 17.0479 9.94402
+                        15.2665 11.4515 13.921C13.1353 12.4181 15.3198 11.5908 17.6022 11.5908C18.3804 11.5908 19.1477 11.6864
+                        19.8922 11.8742V14.7235C19.8922 15.2278 19.7589 15.7254 19.5119 16.1662C18.7615 15.3596 17.6806 14.8528
+                         16.4783 14.8528C14.2136 14.8528 12.3781 16.6466 12.3781 18.8598C12.3781 19.3937 12.4861 19.9021 12.68
+                         20.3676C11.9347 20.5316 11.1396 20.4203 10.4684 20.0413H10.4676Z"></path></svg><br>      
+                        Web developer
+                      <br>
+                      <div class="name">Marouane</div>
+                        </div>
+                      </div>
+                </div>
+                <div class="what-i-do-details">
+                    <h2>What I Do</h2>
+                    <p>
+                        I specialize in creating innovative and user-friendly web solutions. My skills and expertise in
+                        web development allow me to deliver high-quality projects tailored to meet your needs.
+                    </p>
+                    <div class="icon-container">
+                        <img class="animated-icon" src="Assets/html.png" alt="Icon"> 
+                        <img class="animated-icon" src="Assets/css.png" alt="Icon"> 
+                        <img class="animated-icon" src="Assets/angular.png" alt="Icon"> 
+                        <img class="animated-icon" src="Assets/express-js.png" alt="Icon"> 
+                        <img class="animated-icon" src="Assets/react.png" alt="Icon"> 
+                        <img class="animated-icon" src="Assets/node-js.png" alt="Icon"> 
+                    </div>
+                    <div class="three-lines">
+                        <div class="line">&#128161; Crafting pixel-perfect websites</div>
+                        <div class="line">&#128161; Implementing responsive designs</div>
+                        <div class="line">&#128161; Ensuring optimal user experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="middle">
+            <div class="cards">
+                <div class="card red">
+                    <img class="animated-icon" src="Assets/web.png" alt="Icon"> 
+                    <h1>Frontend development</h1>
+                </div>
+                <div class="card blue">
+                    <img class="animated-icon" src="Assets/backend.png" alt="Icon"> 
+                    <h1>Backend development</h1>
+                </div>
+                <div class="card green">
+                    <img class="animated-icon" src="Assets/creator.png" alt="Icon"> 
+                    <h1>Programming</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="skills-content">
+                <h2>Skills</h2>
+                <div class="skill-bar">
+                    <div class="skill-category">
+                        <h3>Front-end Development</h3>
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Back-end Development</h3>
+                        <div class="skill-level" style="width: 60%;"></div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programming</h3>
+                        <div class="skill-level" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-image">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+                <dotlottie-player 
+                    src="https://lottie.host/d3a724f7-2160-4660-a3bf-760aaf447bd8/022ph9cEvO.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 600px; height: 600px;" 
+                    loop autoplay>
+                </dotlottie-player>
+            </div>
+            
+            
+        </section>
+
+        <section id="certificate">
+            <h2>Certifications</h2>
+            <div class="certification-cards">
+                <div class="certification-card">
+                    <img class="certification-image" src="Assets/coursera-logo.jpg" alt="Certification 1">
+                    <div class="certification-content">
+                        <h4 class="certification-title">Automatic Machine Learning w ith H2O Au toML and
+                            Python</h4><br/>
+                            <button class="download-button" id="download-button-1" >
+                                <div class="docs" >
+                                    <svg class="css-i6dzq1" stroke-linejoin="round" 
+                                        stroke-linecap="round" fill="none" stroke-width="2" 
+                                        stroke="currentColor" height="20" width="20" 
+                                        viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8">
+                                        </polyline><line y2="13" x2="8" y1="13" x1="16"></line>
+                                        <line y2="17" x2="8" y1="17" x1="16"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg> 
+                                    See Certificate
+                                </div>
+                                <div class="download" href="Assets/AI.pdf">
+                                  <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
+                                </div>
+                            </button>                   
+                    </div>
+                </div>
+        
+                <div class="certification-card">
+                    <img class="certification-image" src="Assets/coursera-logo.jpg" alt="Certification 2">
+                    <div class="certification-content">
+                        <h4 class="certification-title">Deploy Machine Learning Model into AWS Cloud Servers</h4>
+                           <br/>
+                            <button class="download-button" id="download-button-2">
+                                <div class="docs">
+                                    <svg class="css-i6dzq1" stroke-linejoin="round" 
+                                        stroke-linecap="round" fill="none" stroke-width="2" 
+                                        stroke="currentColor" height="20" width="20" 
+                                        viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8">
+                                        </polyline>
+                                        <line y2="13" x2="8" y1="13" x1="16"></line><line y2="17" x2="8" y1="17" x1="16"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg> 
+                                    See Certificate
+                                </div>
+                                <div class="download">
+                                  <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
+                                </div>
+                            </button>  
+                   </div>
+                </div>
+        
+                <div class="certification-card">
+                    <img class="certification-image" src="Assets/coursera-logo.jpg" alt="Certification 3">
+                    <div class="certification-content">
+                        <h4 class="certification-title">Programming in C# : A comprehensive approach to C# Fundamentals</h4>
+                            
+                            <button class="download-button" id="download-button-3">
+                                <div class="docs">
+                                    <svg class="css-i6dzq1" stroke-linejoin="round" 
+                                        stroke-linecap="round" fill="none" stroke-width="2" 
+                                        stroke="currentColor" height="20" width="20" 
+                                        viewBox="0 0 24 24">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8">
+                                        </polyline>
+                                        <line y2="13" x2="8" y1="13" x1="16"></line>
+                                        <line y2="17" x2="8" y1="17" x1="16"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg> 
+                                        See Certificate
+                                </div>
+                                <div class="download">
+                                  <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
+                                </div>
+                            </button>  
+                   </div>
+                </div>
+            </div>
+        </section>
+        
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-cards">
+            <div class="card">
+                <div class="card-image">
+                    <img class="certification-image" src="Assets/tms.png" alt="Certification 2">
+                </div>
+                <p class="card-title">TMS app</p>
+                <p class="card-body">
+                Nullam ac tristique nulla, at convallis quam. Integer consectetur mi nec magna tristique, non lobortis.
+                </p>
+                <p class="footer">Made by <span class="by-name">Marouane</span> on <span class="date">10/01/23</span></p>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img class="certification-image" src="Assets/javafx.png" alt="Certification 2">
+                </div>
+                <p class="card-title">Ticket Booking App</p>
+                <p class="card-body">
+                Nullam ac tristique nulla, at convallis quam. Integer consectetur mi nec magna tristique, non lobortis.
+                </p>
+                <p class="footer">Made by <span class="by-name">Marouane</span> on <span class="date">13/06/23</span></p>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img class="certification-image" src="Assets/algo.png" alt="Certification 2">
+
+                </div>
+                <p class="card-title">Algorithm Visualizer</p>
+                <p class="card-body">
+                Nullam ac tristique nulla, at convallis quam. Integer consectetur mi nec magna tristique, non lobortis.
+                </p>
+                <p class="footer">Made by <span class="by-name">Marouane</span> on <span class="date">10/01/24</span></p>
+            </div>
+        </div>
+           
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="modal__body">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" 
+                        type="module"></script> 
+                            <dotlottie-player src="https://lottie.host/2ef2dd32-1f29-4dc1-911e-c89e7157e126/hY0N6tShbt.json" 
+                                background="transparent" 
+                                speed="1" 
+                                style="width: 300px; height: 300px;"
+                                loop autoplay>
+                            </dotlottie-player>
+            </div>
+            <div class="modal">
+                <div class="modal__header">
+                    <span class="modal__title">Contact Me</span>
+                </div>
+                <div class="modal__body">
+                    <div class="input">
+                        <label class="input__label">Your Email</label>
+                        <input class="input__field" type="text"> 
+                    </div>
+                    <div class="input">
+                                        <label class="input__label">Your Message</label>
+                        <textarea class="input__field input__field--textarea"></textarea>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button class="button button--primary">Send</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section id="footers">
+        <footer>
+        
+            <p>&copy; 2024 Marouane. All rights reserved.</p>
+        </footer>
+    </section>
+    
+
+</body>
+</html>
